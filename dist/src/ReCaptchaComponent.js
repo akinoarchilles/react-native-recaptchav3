@@ -44,7 +44,8 @@ class ReCaptchaComponent extends React.PureComponent {
                     this._webViewRef = ref;
                 }, javaScriptEnabled: true, originWhitelist: ['*'], automaticallyAdjustContentInsets: true, mixedContentMode: 'always', injectedJavaScript: patchPostMessageJsCode, source: {
                     html: getInvisibleRecaptchaContent(this.props.siteKey, this.props.action),
-                    baseUrl: this.props.captchaDomain
+                    baseUrl: this.props.captchaDomain,
+                    androidHardwareAccelerationDisabled: true
                 }, onMessage: (e) => {
                     this.props.onReceiveToken(e.nativeEvent.data);
                 } }));
