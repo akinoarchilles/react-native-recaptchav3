@@ -42,10 +42,9 @@ class ReCaptchaComponent extends React.PureComponent {
         return React.createElement(react_native_1.View, { style: { flex: 0.0001, width: 0, height: 0 } },
             React.createElement(react_native_webview_1.WebView, { ref: (ref) => {
                     this._webViewRef = ref;
-                }, javaScriptEnabled: true, originWhitelist: ['*'], automaticallyAdjustContentInsets: true, mixedContentMode: 'always', injectedJavaScript: patchPostMessageJsCode, source: {
+                }, javaScriptEnabled: true, originWhitelist: ['*'], automaticallyAdjustContentInsets: true, mixedContentMode: 'always', injectedJavaScript: patchPostMessageJsCode, androidHardwareAccelerationDisabled: true, source: {
                     html: getInvisibleRecaptchaContent(this.props.siteKey, this.props.action),
-                    baseUrl: this.props.captchaDomain,
-                    androidHardwareAccelerationDisabled: true
+                    baseUrl: this.props.captchaDomain
                 }, onMessage: (e) => {
                     this.props.onReceiveToken(e.nativeEvent.data);
                 } }));
